@@ -16,10 +16,6 @@ public class PlayerController : MonoBehaviour
     public float jump = 8f;
     bool swordInFire = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("It is Work!");
-    }
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
