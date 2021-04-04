@@ -9,12 +9,23 @@ public class SwitcherOfScenes : MonoBehaviour
 
    // [SerializeField] public Object[] mySceneAssets;
     [SerializeField] private string m_SceneName = "";
-    private Scene PrevScene;
-
+    Scene PrevScene;
     public KeyCode Key;
     public float downTime = 0f, upTime = 0f, pressTime = 3f;
     public float countDown = 1.0f;
     public bool ready = false;
+
+    //erializeField] private GameObject playerPrefab = null;
+    // [SerializeField] public GameObject playerPrefab;
+    public GameObject startPrefab;
+    public GameObject deletePrefab;
+    Vector2 m_NewPosition;
+
+    void InstantiatePrefabHero()
+    {
+        // Instantiate at position (0, 0, 0) and zero rotation.
+        Instantiate(startPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+    }
 
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -34,7 +45,6 @@ public class SwitcherOfScenes : MonoBehaviour
         {
             ready = false;
             StartCoroutine(LoadScene());
-            DestroyGameObject();
             Debug.Log("Is working after 2 seconds");
         }
 
@@ -42,19 +52,24 @@ public class SwitcherOfScenes : MonoBehaviour
         PrevScene = SceneManager.GetActiveScene();
 
         Debug.Log("Trigger is working");
-        //StartCoroutine(ExampleCoroutine());
     }
+    
     void DestroyGameObject()
     {
-        Destroy(gameObject);
-        Debug.Log("Game object has destroy");
+        Destroy(deletePrefab);
+        Debug.Log(deletePrefab + "Is destroy");
     }
-
+   
     IEnumerator LoadScene()
     {
+       // m_NewPosition =  Vector2.zero;
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(m_SceneName);
+        InstantiatePrefabHero();
+        //startPrefab.transform.position = m_NewPosition;
+        DestroyGameObject();
+
         while (!AsyncLoad.isDone)
-        {
+        {            
             yield return null;
         }
     }

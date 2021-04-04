@@ -474,6 +474,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8975847205545034992, guid: a62ee223092b005429e6595923b5b324, type: 3}
+      propertyPath: m_SceneName
+      value: FirstOne_Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975847205545034992, guid: a62ee223092b005429e6595923b5b324, type: 3}
+      propertyPath: startPrefab
+      value: 
+      objectReference: {fileID: 1774887580592144015, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
+    - target: {fileID: 8975847205545034992, guid: a62ee223092b005429e6595923b5b324, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 8486353560222972126, guid: 05eb204bb4880e8478148e43f554bbcf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a62ee223092b005429e6595923b5b324, type: 3}
 --- !u!1 &1433194232
