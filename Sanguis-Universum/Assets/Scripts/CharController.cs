@@ -17,7 +17,7 @@ public class CharController : MonoBehaviour
     private bool m_Grounded;
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
-    private Rigidbody m_Rigidbody;
+    private Rigidbody2D m_Rigidbody;
     private float m_MovementSmooth = .05f;
 
     bool jump = false;
@@ -31,7 +31,7 @@ public class CharController : MonoBehaviour
 
     void Awake ()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
 
         if(OnLandEvent == null)
         {
@@ -65,7 +65,8 @@ public class CharController : MonoBehaviour
         {
             
             m_Grounded = false;
-            m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
+
         }
     }
 
@@ -76,7 +77,7 @@ public class CharController : MonoBehaviour
 
         
         Vector3 theScale = transform.localScale;
-        theScale.z *= -1;
+        theScale.x *= -1;
         transform.localScale = theScale;
     }
 
@@ -85,12 +86,12 @@ public class CharController : MonoBehaviour
     {
         h_Move = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        animator.SetFloat("Speed", Mathf.Abs(h_Move));
+        //animator.SetFloat("Speed", Mathf.Abs(h_Move));
 
         if(Input.GetButtonDown("Jump"))
         {
             jump = true;
-            animator.SetTrigger("JumpStart");
+            //animator.SetTrigger("JumpStart");
             
         }
 
@@ -103,13 +104,13 @@ public class CharController : MonoBehaviour
     public void OnLanding()
     {
         
-        animator.SetTrigger("Landing");
+        //animator.SetTrigger("Landing");
     }
 
 
     void FixedUpdate ()
     {
-        animator.ResetTrigger("Landing");
+        //animator.ResetTrigger("Landing");
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
