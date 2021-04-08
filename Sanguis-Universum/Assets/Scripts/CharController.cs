@@ -25,9 +25,15 @@ public class CharController : MonoBehaviour
     public float runSpeed = 40f;
 
     public UnityEvent OnLandEvent;
+    public VectorValue PlayerPosition;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
+    private void Start()
+    {
+        PlayerPosition.initialValue = transform.position;
+        //transform.position = PlayerPosition.initialValue;
+    }
 
     void Awake ()
     {
@@ -83,6 +89,8 @@ public class CharController : MonoBehaviour
 
     void Update ()
     {
+        //transform.position = PlayerPosition.initialValue;
+
         h_Move = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(h_Move));
