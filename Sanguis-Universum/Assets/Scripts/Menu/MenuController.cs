@@ -26,11 +26,11 @@ public class MenuController : MonoBehaviour
 
     public void setMusic(float value)
     {
-        Global.music = value;
+        //Global.music = value;
     }
 
     public void setSound(float value)
     {
-        Global.sound = value;
+        //Global.sound = value;
     }
 }
