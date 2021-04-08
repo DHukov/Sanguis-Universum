@@ -6,67 +6,104 @@ using UnityEngine;
 
 public class SwitcherOfScenes : MonoBehaviour
 {
+    [SerializeField] string m_SceneName;
+    [SerializeField] float time;
 
-   // [SerializeField] public Object[] mySceneAssets;
-    [SerializeField] private string m_SceneName = "";
-    Scene PrevScene;
+
+    public Vector3 position;
+    public VectorValue PlayerStorage;
+
+    private bool HasPlayer;
+
+    public Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
+    public void Update()
+    {
+       
+        if (Input.GetKeyDown(KeyCode.Tab) && HasPlayer == true)
+        {
+            StartCoroutine(LoadScene());
+
+            //StartCoroutine(Action());
+
+            //anim.Play("ToFade");
+        }
+        if (Input.GetKeyUp(KeyCode.Tab) || HasPlayer == false)
+        {
+            // StopCoroutine(Action());
+            StartCoroutine(LoadScene());
+
+        }
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Enter");
+        if (collision.CompareTag("Player"))
+        {
+            HasPlayer = true;
+        }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Debug.Log("Exit");
+        if (collision.CompareTag("Player"))
+        {
+            HasPlayer = false;
+        }
+    }
+    /*
+
+        Scene PrevScene;
     public KeyCode Key;
-    public float downTime = 0f, upTime = 0f, pressTime = 3f;
+    public float downTime = 3f, upTime = 0f, pressTime = 0f;
     public float countDown = 1.0f;
     public bool ready = false;
 
-    //erializeField] private GameObject playerPrefab = null;
-    // [SerializeField] public GameObject playerPrefab;
-    public GameObject startPrefab;
-    public GameObject deletePrefab;
-    Vector2 m_NewPosition;
+      if (Input.GetKeyUp(KeyCode.Space))
+      {
+          StopCoroutine(Action()); 
 
-    void InstantiatePrefabHero()
+      }
+      if (Input.GetKeyDown(Key) && ready == false)
+      {
+          downTime = Time.time;
+          pressTime = downTime + countDown;
+          ready = true;
+
+      }
+      if (Input.GetKeyUp(Key))
+      {
+          ready = false;
+
+      }
+      if (Time.time >= pressTime && ready == true)
+      {
+          ready = false;
+          StartCoroutine(LoadScene());
+          Debug.Log("Is working after 2 seconds");
+      }
+      //Store the old scene.
+      PrevScene = SceneManager.GetActiveScene();
+
+      //Debug.Log("Trigger is working");
+      */
+
+    IEnumerator Action()
     {
-        // Instantiate at position (0, 0, 0) and zero rotation.
-        Instantiate(startPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        yield return new WaitForSeconds(time);
+
+        Debug.Log("Time" + time);
     }
-
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetKeyDown(Key) && ready == false)
-        {
-            downTime = Time.time;
-            pressTime = downTime + countDown;
-            ready = true;
-
-        }
-        if (Input.GetKeyUp(Key))
-        {
-            ready = false;
-
-        }
-        if (Time.time >= pressTime && ready == true)
-        {
-            ready = false;
-            StartCoroutine(LoadScene());
-            Debug.Log("Is working after 2 seconds");
-        }
-
-        //Store the old scene.
-        PrevScene = SceneManager.GetActiveScene();
-
-        Debug.Log("Trigger is working");
-    }
-    
-    void DestroyGameObject()
-    {
-        Destroy(deletePrefab);
-        Debug.Log(deletePrefab + "Is destroy");
-    }
-   
     IEnumerator LoadScene()
     {
-       // m_NewPosition =  Vector2.zero;
+        PlayerStorage.initialValue = position;
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(m_SceneName);
-        InstantiatePrefabHero();
-        //startPrefab.transform.position = m_NewPosition;
-        DestroyGameObject();
+        anim.SetTrigger("FadeOut");
 
         while (!AsyncLoad.isDone)
         {            
