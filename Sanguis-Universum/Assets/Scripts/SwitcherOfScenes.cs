@@ -36,7 +36,7 @@ public class SwitcherOfScenes : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Tab) || HasPlayer == false)
         {
             // StopCoroutine(Action());
-            StartCoroutine(LoadScene());
+            //StartCoroutine(LoadScene());
 
         }
     }
