@@ -7,8 +7,8 @@ using UnityEngine;
 public class SwitcherOfScenes : MonoBehaviour
 {
     [SerializeField] string m_SceneName;
+    public float spaceHoldingTime = 0;
     [SerializeField] float time;
-
 
     public Vector3 position;
     public VectorValue PlayerStorage;
@@ -19,20 +19,26 @@ public class SwitcherOfScenes : MonoBehaviour
 
     void Start()
     {
+      /*  if(Input.GetKey(KeyCode.Tab))
+        {
+        StartCoroutine(CountPressTimeCoroutine());
+        } */
         anim = GetComponent<Animator>();
     }
 
     public void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.Tab) && HasPlayer == true)
+
+        if (Input.GetKey(KeyCode.Space) && HasPlayer == true)
         {
-            StartCoroutine(LoadScene());
-
-            //StartCoroutine(Action());
-
-            //anim.Play("ToFade");
+                StartCoroutine(CountPressTimeCoroutine());
+          
         }
+        else
+        {
+
+        }
+       
         if (Input.GetKeyUp(KeyCode.Tab) || HasPlayer == false)
         {
             // StopCoroutine(Action());
@@ -45,6 +51,8 @@ public class SwitcherOfScenes : MonoBehaviour
         Debug.Log("Enter");
         if (collision.CompareTag("Player"))
         {
+            //StartCoroutine(CountPressTimeCoroutine());
+
             HasPlayer = true;
         }
     }
@@ -93,12 +101,63 @@ public class SwitcherOfScenes : MonoBehaviour
       //Debug.Log("Trigger is working");
       */
 
+    IEnumerator CountPressTimeCoroutine()
+    {
+        Debug.Log("Couratine is starting");
+
+
+        while (true)
+        {
+            /*
+            if(time >= )
+            {
+    
+                time = spaceHoldingTime =+ Time.deltaTime;
+                Debug.Log("True");
+                //StartCoroutine(LoadScene());
+              
+                //EnterToTheScene();
+            }
+            else if (spaceHoldingTime > 0)
+            {
+                OnSpaceReleased();
+                //StopCoroutine(LoadScene());
+                //StartCoroutine(LoadScene());
+            }
+
+            yield return null;
+            //if (Input.GetKey(KeyCode.Space) && HasPlayer == true)
+
+            //StartCoroutine(LoadScene());
+
+
+            */
+        }
+    }
+    void EnterToTheScene()
+    {
+        if(spaceHoldingTime >= Time.deltaTime)
+        {
+            StartCoroutine(LoadScene());
+        }
+        else
+            OnSpaceReleased();
+        
+    }
+    void OnSpaceReleased()
+    {
+        if(spaceHoldingTime >= 2)
+        Debug.Log(spaceHoldingTime);
+        spaceHoldingTime = 0;
+    }
+    /*
     IEnumerator Action()
     {
         yield return new WaitForSeconds(time);
 
         Debug.Log("Time" + time);
     }
+    */
     IEnumerator LoadScene()
     {
         PlayerStorage.initialValue = position;
