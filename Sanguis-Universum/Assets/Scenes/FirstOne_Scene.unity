@@ -570,10 +570,6 @@ PrefabInstance:
       propertyPath: m_VolumeTrigger
       value: 
       objectReference: {fileID: 1072840644}
-    - target: {fileID: 1774887580777920624, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6851513470590335508, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
       propertyPath: m_RootOrder
       value: 6
