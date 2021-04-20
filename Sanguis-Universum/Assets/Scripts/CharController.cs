@@ -17,7 +17,7 @@ public class CharController : MonoBehaviour
     private bool m_Grounded;
     private bool m_FacingRight = true;
     private Vector3 m_Velocity = Vector3.zero;
-    private Rigidbody2D m_Rigidbody;
+    private Rigidbody2D m_Rigidbody2D;
     private float m_MovementSmooth = .05f;
 
     bool jump = false;
@@ -25,19 +25,13 @@ public class CharController : MonoBehaviour
     public float runSpeed = 40f;
 
     public UnityEvent OnLandEvent;
-    public VectorValue PlayerPosition;
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
-    private void Start()
-    {
-        PlayerPosition.initialValue = transform.position;
-        //transform.position = PlayerPosition.initialValue;
-    }
 
     void Awake ()
     {
-        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
         if(OnLandEvent == null)
         {
@@ -49,9 +43,9 @@ public class CharController : MonoBehaviour
     {
         if(m_Grounded || !m_Grounded)
         {
-            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody.velocity.y);
+            Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
-            m_Rigidbody.velocity = Vector3.SmoothDamp(m_Rigidbody.velocity, targetVelocity, ref m_Velocity, m_MovementSmooth);
+            m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmooth);
 
 
             if (move > 0 && !m_FacingRight)
@@ -71,7 +65,7 @@ public class CharController : MonoBehaviour
         {
             
             m_Grounded = false;
-            m_Rigidbody.AddForce(new Vector2(0f, m_JumpForce), ForceMode2D.Impulse);
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 
         }
     }
@@ -90,8 +84,6 @@ public class CharController : MonoBehaviour
 
     void Update ()
     {
-        //transform.position = PlayerPosition.initialValue;
-
         h_Move = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         //animator.SetFloat("Speed", Mathf.Abs(h_Move));
@@ -122,7 +114,8 @@ public class CharController : MonoBehaviour
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
-        Collider[] colliders = Physics.OverlapSphere(GroundCheck.position, k_GroundedRadius);
+        //Collider[] colliders = Physics.OverlapSphere(GroundCheck.position, k_GroundedRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject != gameObject)
