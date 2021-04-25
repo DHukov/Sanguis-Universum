@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637549567044793627
-    m_Hash: 1425085249
+      ticks: 637549683576629769
+    m_Hash: 3626975735
   m_LockFileStatus:
     m_FilePath: F:/Unity/GitHub/Sanguis-Universum/Sanguis-Universum/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637549567046615286
-    m_Hash: 1464126061
+      ticks: 637549683576629769
+    m_Hash: 370676181
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:

@@ -350,10 +350,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0926ce49b8e78544e948e32e65b88872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SceneName: First_level
-  time: 1
   position: {x: 25, y: 0, z: 0}
   PlayerStorage: {fileID: 11400000, guid: b85db5334182966458e20c871e2a6e59, type: 2}
+  m_SceneName: First_level
+  spaceHoldingTime: 2
+  time: 0
+  KeyToScene: 9
   anim: {fileID: 1035756131}
 --- !u!95 &1035756131
 Animator:

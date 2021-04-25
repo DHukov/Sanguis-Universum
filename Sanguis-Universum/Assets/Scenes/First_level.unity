@@ -1621,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5166998673605955384, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.817
+      objectReference: {fileID: 0}
     - target: {fileID: 6851513470590335508, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6164,8 +6168,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7779424146478621087, guid: a26f122932eda034b98285825cb09e83, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 403.8292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779424146478621087, guid: a26f122932eda034b98285825cb09e83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.89
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 7779424146478621087, guid: a26f122932eda034b98285825cb09e83, type: 3}
       propertyPath: m_LocalPosition.y
