@@ -3,7 +3,10 @@ guid: 912f6b91ed210f74ba7b687ff77c24ca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - animator: {instanceID: 0}
+  - GroundCheck: {instanceID: 0}
+  - PlayerPosition: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

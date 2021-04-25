@@ -6,14 +6,16 @@ using UnityEngine;
 
 public class SwitcherOfScenes : MonoBehaviour
 {
+    public Vector3 position;
+    public VectorValue PlayerStorage;
+
     [SerializeField] string m_SceneName;
     public float spaceHoldingTime = 0;
     [SerializeField] float time;
 
-    public Vector3 position;
-    public VectorValue PlayerStorage;
 
     private bool HasPlayer;
+    public KeyCode KeyToScene;
 
     public Animator anim;
 
@@ -26,7 +28,7 @@ public class SwitcherOfScenes : MonoBehaviour
     public void Update()
     {
 
-        if (Input.GetKey(KeyCode.Space) && HasPlayer == true)
+        if (Input.GetKey(KeyToScene) && HasPlayer == true)
         {
             StartCoroutine(LoadScene());
         }
@@ -35,7 +37,7 @@ public class SwitcherOfScenes : MonoBehaviour
 
         }
        
-        if (Input.GetKey(KeyCode.Space) == false || HasPlayer == false)
+        if (Input.GetKey(KeyToScene) == false || HasPlayer == false)
         {
             StopCoroutine(LoadScene());
         }
@@ -99,7 +101,7 @@ public class SwitcherOfScenes : MonoBehaviour
     {
         while (true)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyToScene))
                 spaceHoldingTime += Time.deltaTime;
             else if (spaceHoldingTime > 0)
                 OnSpaceReleased();
