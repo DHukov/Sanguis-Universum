@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int keys;
+    public bool key1;
+    public bool key1Used;
 
-    public void PickUpKey()
+    public void PickUpKey1()
     {
-        keys++;
-        Debug.Log("Keys: " + keys);
+        if (!key1)
+        {
+            key1 = true;
+            Debug.Log("I found a key of the first foor!");
+        }
     }
-    public void useKey()
+    public void useKey1()
     {
-        keys--;
-        Debug.Log("Keys: " + keys);
+        if (!key1Used)
+        {
+            Debug.Log("Door has been opened...");
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChestController : MonoBehaviour
 {
     public bool isOpen;
-   // public bool animator;
+   // public Animator animator;
 
     public void OpenChest()
     {
