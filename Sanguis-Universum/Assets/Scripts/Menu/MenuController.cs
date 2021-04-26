@@ -19,6 +19,8 @@ public class MenuController : MonoBehaviour
         settings.SetActive(!settings.activeSelf);
     }
 
+    
+
     public void ExitGame()
     {
         Application.Quit();
