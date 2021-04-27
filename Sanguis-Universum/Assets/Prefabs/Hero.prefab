@@ -236,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5166998673605955385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -0.92, z: 0}
+  m_LocalPosition: {x: 0.07, y: -1.114, z: 0}
   m_LocalScale: {x: 1.2089254, y: 2.609586, z: 3.32}
   m_Children: []
   m_Father: {fileID: 6851513470590335508}
@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 6851513470590335511}
   - component: {fileID: 6851513470590335515}
   - component: {fileID: 6851513470590335514}
+  - component: {fileID: 962969697}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -271,7 +272,7 @@ Transform:
   m_GameObject: {fileID: 6851513470590335512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.15, y: -0.95, z: 0}
-  m_LocalScale: {x: 1.2089254, y: 2.609586, z: 3.32}
+  m_LocalScale: {x: 1.208925, y: 2.609586, z: 3.32}
   m_Children:
   - {fileID: 5166998673605955384}
   - {fileID: 5166998672439402857}
@@ -332,8 +333,8 @@ MonoBehaviour:
   GroundCheck: {fileID: 5166998673605955384}
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 64
-  m_JumpForce: 400
+    m_Bits: 8
+  m_JumpForce: 15
   runSpeed: 40
   OnLandEvent:
     m_PersistentCalls:
@@ -358,3 +359,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &962969697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851513470590335512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c6fa89f8c4c1af4295beb211cd6fb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  Stamina: 4
+  key1: 0
+  key1Used: 0
