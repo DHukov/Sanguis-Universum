@@ -8,6 +8,8 @@ public class Interaction : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
+
+
     void Start()
     {
         
@@ -19,6 +21,7 @@ public class Interaction : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
+
                 interactAction.Invoke();
             }
         }

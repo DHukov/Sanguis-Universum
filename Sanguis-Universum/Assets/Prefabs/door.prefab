@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 8975847205545034894}
   - component: {fileID: 175542678}
   - component: {fileID: 1035756131}
+  - component: {fileID: 64896069}
   m_Layer: 0
   m_Name: Teleportation
   m_TagString: Untagged
@@ -350,13 +351,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0926ce49b8e78544e948e32e65b88872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 25, y: 0, z: 0}
   PlayerStorage: {fileID: 11400000, guid: b85db5334182966458e20c871e2a6e59, type: 2}
-  m_SceneName: First_level
+  position: {x: 25, y: 0, z: 0}
+  m_SceneName: FirstOne_Scene
   spaceHoldingTime: 2
   time: 0
+  Key: {fileID: 0}
   KeyToScene: 9
   anim: {fileID: 1035756131}
+  isOpened: 0
 --- !u!95 &1035756131
 Animator:
   serializedVersion: 3
@@ -376,3 +379,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &64896069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975847205545034893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfe461bff030f54c9ec5da30fd38644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInRange: 0
+  interactKey: 101
+  interactAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 175542678}
+        m_TargetAssemblyTypeName: SwitcherOfScenes, Assembly-CSharp
+        m_MethodName: IsOpened
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 175542678}
+        m_TargetAssemblyTypeName: SwitcherOfScenes, Assembly-CSharp
+        m_MethodName: Teleport
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

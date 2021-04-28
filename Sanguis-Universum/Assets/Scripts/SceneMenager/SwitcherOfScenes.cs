@@ -6,48 +6,55 @@ using UnityEngine;
 
 public class SwitcherOfScenes : MonoBehaviour
 {
-    public Vector3 position;
     public VectorValue PlayerStorage;
-
+    public Vector3 position;
     [SerializeField] string m_SceneName;
     public float spaceHoldingTime = 0;
     [SerializeField] float time;
 
+    public PlayerStats Key;
 
     private bool HasPlayer;
     public KeyCode KeyToScene;
 
     public Animator anim;
+    public bool isOpened;
 
     void Start()
     {
-        //StartCoroutine(CountPressTimeCoroutine());
         anim = GetComponent<Animator>();
     }
 
-    public void Update()
+    public void IsOpened(GameObject obj)
     {
-
-        if (Input.GetKey(KeyToScene) && HasPlayer == true)
+        if (!isOpened)
+        {
+            PlayerStats manager = obj.GetComponent<PlayerStats>();
+            if (manager.key1)
+            {
+                isOpened = true;
+                manager.useKey1();
+                Debug.Log("FBIopened the door");
+            }
+            else
+            {
+                Debug.Log("Nie otwarte");
+            }
+        }
+    }
+    public void Teleport()
+    {
+        if (isOpened)
         {
             StartCoroutine(LoadScene());
         }
-        else
-        {
-
-        }
-       
-        if (Input.GetKey(KeyToScene) == false || HasPlayer == false)
-        {
-            StopCoroutine(LoadScene());
-        }
     }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Enter");
         if (collision.CompareTag("Player"))
         {
-
             HasPlayer = true;
         }
     }
@@ -59,43 +66,6 @@ public class SwitcherOfScenes : MonoBehaviour
             HasPlayer = false;
         }
     }
-    /*
-
-        Scene PrevScene;
-    public KeyCode Key;
-    public float downTime = 3f, upTime = 0f, pressTime = 0f;
-    public float countDown = 1.0f;
-    public bool ready = false;
-
-      if (Input.GetKeyUp(KeyCode.Space))
-      {
-          StopCoroutine(Action()); 
-
-      }
-      if (Input.GetKeyDown(Key) && ready == false)
-      {
-          downTime = Time.time;
-          pressTime = downTime + countDown;
-          ready = true;
-
-      }
-      if (Input.GetKeyUp(Key))
-      {
-          ready = false;
-
-      }
-      if (Time.time >= pressTime && ready == true)
-      {
-          ready = false;
-          StartCoroutine(LoadScene());
-          Debug.Log("Is working after 2 seconds");
-      }
-      //Store the old scene.
-      PrevScene = SceneManager.GetActiveScene();
-
-      //Debug.Log("Trigger is working");
-      */
-
 
     IEnumerator CountPressTimeCoroutine()
     {
@@ -116,13 +86,13 @@ public class SwitcherOfScenes : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
-        PlayerStorage.initialValue = position;
+        //PlayerStorage.initialValue = position;
 
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(m_SceneName);
         anim.SetTrigger("FadeOut");
-
         while (!AsyncLoad.isDone)
-        {            
+        {
+
             yield return null;
         }
     }

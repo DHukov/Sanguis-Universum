@@ -31,79 +31,78 @@ public class CharController : MonoBehaviour
     public class BoolEvent : UnityEvent<bool> { }
     private void Start()
     {
-        PlayerPosition.initialValue = transform.position;
-        //transform.position = PlayerPosition.initialValue;
+
+        //PlayerPosition.initialValue = transform.position;
+        // transform.localScale = PlayerPosition.scaleValue;
+
     }
 
-    void Awake ()
+    void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
-        if(OnLandEvent == null)
+        if (OnLandEvent == null)
         {
             OnLandEvent = new UnityEvent();
         }
     }
 
-    void Move (float move, bool jump)
+    void Move(float move, bool jump)
     {
-        if(m_Grounded || !m_Grounded)
+        if (m_Grounded || !m_Grounded)
         {
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
             m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmooth);
 
-
             if (move > 0 && !m_FacingRight)
             {
-                
+
                 Flip();
             }
-            
+
             else if (move < 0 && m_FacingRight)
             {
-                
+
                 Flip();
             }
         }
 
         if (m_Grounded && jump)
         {
-            
+
             m_Grounded = false;
-            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+            m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * 100));
 
         }
     }
 
     void Flip()
     {
-        
-        m_FacingRight = !m_FacingRight;
 
-        
+        m_FacingRight = !m_FacingRight;
+        //PlayerPosition.scaleValue.x *= -1;
         Vector3 theScale = transform.localScale;
+
         theScale.x *= -1;
         transform.localScale = theScale;
     }
 
 
-    void Update ()
+    void Update()
     {
-        //transform.position = PlayerPosition.initialValue;
-
         h_Move = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         //animator.SetFloat("Speed", Mathf.Abs(h_Move));
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             jump = true;
             //animator.SetTrigger("JumpStart");
-            
+
         }
 
-        if(Mathf.Abs(h_Move) > 0 || !m_Grounded)
+        if (Mathf.Abs(h_Move) > 0 || !m_Grounded)
         {
 
         }
@@ -111,12 +110,12 @@ public class CharController : MonoBehaviour
 
     public void OnLanding()
     {
-        
+
         //animator.SetTrigger("Landing");
     }
 
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
         //animator.ResetTrigger("Landing");
         bool wasGrounded = m_Grounded;
@@ -130,12 +129,12 @@ public class CharController : MonoBehaviour
             {
                 m_Grounded = true;
                 OnLanding();
-                Debug.Log(colliders[i].name);
+                //Debug.Log(colliders[i].name);
             }
         }
 
         Move(h_Move * Time.fixedDeltaTime, jump);
         jump = false;
-        
+
     }
 }
