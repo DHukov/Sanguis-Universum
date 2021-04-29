@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChestController : MonoBehaviour
 {
     public bool isOpen;
-   // public Animator animator;
+    public Animator animator;
 
     public void OpenChest()
     {
@@ -13,7 +13,7 @@ public class ChestController : MonoBehaviour
         {
             isOpen = true;
             Debug.Log("Chest hes been opened");
-            //animator.SetBool("isOpen", isOpen);
+            animator.SetBool("Opened", isOpen);
         }
     }
 }
