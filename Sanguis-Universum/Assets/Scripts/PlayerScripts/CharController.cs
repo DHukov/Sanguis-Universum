@@ -60,7 +60,7 @@ public class CharController : MonoBehaviour
         }
     }
 
-    void Move(float move, bool jump, bool crouch)
+    void Move(float move, bool jump/*, bool crouch*/)
     {
 
         /*if (!crouch)
@@ -144,12 +144,12 @@ public class CharController : MonoBehaviour
     {
         h_Move = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        //animator.SetFloat("Speed", Mathf.Abs(h_Move));
+        animator.SetFloat("Speed", Mathf.Abs(h_Move));
 
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            //animator.SetTrigger("JumpStart");
+            animator.SetTrigger("JumpStart");
 
         }
 
@@ -162,13 +162,13 @@ public class CharController : MonoBehaviour
     public void OnLanding()
     {
 
-        //animator.SetTrigger("Landing");
+        animator.SetTrigger("Landing");
     }
 
 
     void FixedUpdate()
     {
-        //animator.ResetTrigger("Landing");
+        animator.ResetTrigger("Landing");
         bool wasGrounded = m_Grounded;
         m_Grounded = false;
 
