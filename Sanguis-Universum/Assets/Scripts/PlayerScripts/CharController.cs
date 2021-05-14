@@ -60,21 +60,21 @@ public class CharController : MonoBehaviour
         }
     }
 
-    void Move(float move, bool jump/*, bool crouch*/)
+    public void Move(float move, bool crouchd, bool jump)
     {
 
-        /*if (!crouch)
+        if (!crouchd)
         {
             if (Physics2D.OverlapCircle(CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
             {
-                crouch = true;
+                crouchd = true;
             }
-        }*/
+        }
 
         if (m_Grounded || !m_Grounded)
         {
 
-            /*if (crouch)
+            if (crouchd)
             {
                 if (!m_wasCrouching)
                 {
@@ -100,7 +100,7 @@ public class CharController : MonoBehaviour
                     m_wasCrouching = false;
                     OnCrouchEvent.Invoke(false);
                 }
-            }*/
+            }
 
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
 
@@ -157,12 +157,26 @@ public class CharController : MonoBehaviour
         {
 
         }
+
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = true;
+
+        } else if (Input.GetButtonUp("Crouch"))
+        {
+            crouch = false;
+        }
     }
 
-    public void OnLanding()
+    public void OnLanding ()
     {
 
         animator.SetTrigger("Landing");
+    }
+
+    public void OnCrouching (bool isCrouching)
+    {
+        animator.SetBool("Crouch", isCrouching);
     }
 
 
@@ -184,7 +198,7 @@ public class CharController : MonoBehaviour
             }
         }
 
-        Move(h_Move * Time.fixedDeltaTime, jump);
+        Move(h_Move * Time.fixedDeltaTime, crouch, jump);
         jump = false;
 
     }
