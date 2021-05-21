@@ -24,6 +24,7 @@ public class CharController : MonoBehaviour
     private float m_MovementSmooth = .05f;
 
     bool jump = false;
+    bool crouch;
     float h_Move = 0f;
     public float runSpeed = 40f;
     public float crouchSpeed = 20f;
@@ -60,21 +61,21 @@ public class CharController : MonoBehaviour
         }
     }
 
-    public void Move(float move, bool crouchd, bool jump)
+    public void Move(float move, bool crouch, bool jump)
     {
 
-        if (!crouchd)
+        if (!crouch)
         {
             if (Physics2D.OverlapCircle(CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
             {
-                crouchd = true;
+                crouch = true;
             }
         }
 
         if (m_Grounded || !m_Grounded)
         {
 
-            if (crouchd)
+            if (crouch)
             {
                 if (!m_wasCrouching)
                 {
@@ -158,11 +159,11 @@ public class CharController : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             crouch = true;
 
-        } else if (Input.GetButtonUp("Crouch"))
+        } else if (Input.GetKeyUp(KeyCode.S))
         {
             crouch = false;
         }

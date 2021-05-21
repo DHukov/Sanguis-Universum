@@ -3573,7 +3573,7 @@ PrefabInstance:
     - target: {fileID: 1781117199071975735, guid: ec8aa9821e2d95142a5c64203939bad7, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5194140796595004159}
+      objectReference: {fileID: 7177559295777066082}
     - target: {fileID: 6006727582894133163, guid: ec8aa9821e2d95142a5c64203939bad7, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -5397,7 +5397,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5194140796595004159}
+      - m_Target: {fileID: 7177559295777066082}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
         m_MethodName: SavePlayer
         m_Mode: 1
@@ -6028,7 +6028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5194140796595004159}
+      - m_Target: {fileID: 7177559295777066082}
         m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
         m_MethodName: LoadPlayer
         m_Mode: 1
@@ -9481,7 +9481,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &2607317879589776937
+--- !u!1001 &1956938720649746485
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9535,22 +9535,6 @@ PrefabInstance:
     - target: {fileID: 6851513470590335512, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
       propertyPath: m_Name
       value: Hero
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851513470590335515, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851513470590335515, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6851513470590335515, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5815520757192506028}
-    - target: {fileID: 6851513470590335515, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
@@ -9612,26 +9596,26 @@ PrefabInstance:
     - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
       propertyPath: Key
       value: 
-      objectReference: {fileID: 5194140796595004159}
+      objectReference: {fileID: 7177559295777066082}
     - target: {fileID: 4305346197234288751, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 5815520757192506028}
+      objectReference: {fileID: 8879544852043142193}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
---- !u!114 &5194140796595004159 stripped
+--- !u!114 &7177559295777066082 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5166998672518505035, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-  m_PrefabInstance: {fileID: 2607317879589776937}
+  m_PrefabInstance: {fileID: 1956938720649746485}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5815520757192506028}
+  m_GameObject: {fileID: 8879544852043142193}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f00ff0be5d39494bab763016a97a4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5815520757192506028 stripped
+--- !u!1 &8879544852043142193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6851513470590335512, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-  m_PrefabInstance: {fileID: 2607317879589776937}
+  m_PrefabInstance: {fileID: 1956938720649746485}
   m_PrefabAsset: {fileID: 0}
