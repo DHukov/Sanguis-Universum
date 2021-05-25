@@ -286,9 +286,9 @@ GameObject:
   - component: {fileID: 6593754064725111767}
   - component: {fileID: 6851513470590335515}
   - component: {fileID: 6851513470590335514}
-  - component: {fileID: 5166998672518505035}
   - component: {fileID: 1126346730456331374}
   - component: {fileID: 6922608336137817089}
+  - component: {fileID: 552630536}
   m_Layer: 0
   m_Name: Hero
   m_TagString: Player
@@ -438,22 +438,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5166998672518505035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6851513470590335512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f00ff0be5d39494bab763016a97a4cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 4
-  Stamina: 8
-  key1: 0
-  key1Used: 0
 --- !u!212 &1126346730456331374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -519,10 +503,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6851513470590335514}
   AttackProbe: {fileID: 1956938720814060803}
-  attackDistance: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  attackDistance: 1
+  attackStr: 30
+  attackSpeed: 2
+--- !u!114 &552630536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6851513470590335512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f00ff0be5d39494bab763016a97a4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 4
+  Stamina: 8
+  key1: 0
+  key1Used: 0
 --- !u!1 &8701499647108792158
 GameObject:
   m_ObjectHideFlags: 0
