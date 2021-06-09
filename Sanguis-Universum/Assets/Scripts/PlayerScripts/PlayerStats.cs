@@ -15,13 +15,14 @@ public class PlayerStats : MonoBehaviour
 
     public int SceneIndex;
 
+    /*
     public void OnDisable()
     {
         Debug.Log("PrintOnDisable: script was disabled");
         SavePlayer();
 
     }
-
+      
     public void OnEnable()
     {
         PlayerData data2 = SaveSystem.LoadPlayer();
@@ -31,6 +32,8 @@ public class PlayerStats : MonoBehaviour
         LoadPlayerStats();
 
     }
+      
+     */
 
 
     public void Update()
@@ -38,12 +41,14 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             LoadPlayerStats();
-            Debug.LogError("L");
+            LoadPlayerPosition();
+            Debug.Log("L");
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
+            
             SavePlayer();
-            Debug.LogError("K");
+            Debug.Log("K");
 
         }
     }
@@ -56,7 +61,7 @@ public class PlayerStats : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
-        key1 = data.key1;
+        //key1 = data.key1;
         Health = data.Health;
         Stamina = data.Stamina;
 
@@ -73,7 +78,7 @@ public class PlayerStats : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
-
+         
     }
     public void PickUpKey1()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2530,7 +2530,7 @@ PrefabInstance:
     - target: {fileID: 1781117199071975735, guid: ec8aa9821e2d95142a5c64203939bad7, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8879544852043142194}
     - target: {fileID: 6006727582894133163, guid: ec8aa9821e2d95142a5c64203939bad7, type: 3}
       propertyPath: m_Name
       value: Chest
@@ -6887,6 +6887,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3098324903650196361, guid: 87a34eec2523f9d4db49f64aac396008, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8879544852043142194}
+    - target: {fileID: 3098324903784903544, guid: 87a34eec2523f9d4db49f64aac396008, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8879544852043142194}
     - target: {fileID: 3098324903976644538, guid: 87a34eec2523f9d4db49f64aac396008, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7032,6 +7040,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: isOpened
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: m_SceneName
+      value: FirstOne_Scene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: LoadUnit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8879544852043142194}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: SaveUnit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8879544852043142194}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: LoadUnit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadPlayerStats
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305346197234288749, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
+      propertyPath: SaveUnit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SavePlayer
+      objectReference: {fileID: 0}
     - target: {fileID: 4305346197234288751, guid: 03d50ec1ca8d14346aac3929e4fe1a97, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
@@ -7043,3 +7075,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6851513470590335512, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
   m_PrefabInstance: {fileID: 1956938720649746485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8879544852043142194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552630536, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
+  m_PrefabInstance: {fileID: 1956938720649746485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879544852043142193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f00ff0be5d39494bab763016a97a4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
