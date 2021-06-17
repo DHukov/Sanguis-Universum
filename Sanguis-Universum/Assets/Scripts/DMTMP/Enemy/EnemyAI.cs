@@ -11,6 +11,10 @@ public class EnemyAI : MonoBehaviour
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
+    public float calmSpeed = 10f;
+    public Transform groundDetection;
+    public float distance = 5f;
+
     public float speed = 200f;
     public float nextWayPointDistance = 3f;
     public float jumpNodeHeightRequirenment = 0.8f;
@@ -36,9 +40,47 @@ public class EnemyAI : MonoBehaviour
         InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
     }
 
+    void Update()
+    {
+        if (followEnabled == false)
+        {
+            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+            if (groundInfo == false)
+            {
+                transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, 0.12022f);
+                calmSpeed = calmSpeed * -1;
+            }
+            Vector2 force = new Vector2(calmSpeed, 0);
+            rb.AddForce(force);
+        }
+        /*
+        if(followEnabled == false)
+        {
+            rb.velocity = new Vector2(0, 0);
+
+            transform.Translate(Vector2.right * calmSpeed * Time.deltaTime);
+            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
+
+            if (groundInfo == false)
+            {
+                if (movingRight == true)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    movingRight = false;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, -0, 0);
+                    movingRight = true;
+                }
+            }
+        }
+        */
+    }
+
     private void FixedUpdate()
     {
-        if(TargetInDistance() && followEnabled)
+        if (TargetInDistance() && followEnabled)
         {
             PathFollow();
         }
