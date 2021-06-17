@@ -13,6 +13,7 @@ public class CharController : MonoBehaviour
     public LayerMask m_WhatIsGround;
     public Transform CeilingCheck;
     public Collider2D CrouchDisableCollider;
+    private PlatformEffector2D effector;
 
     public float m_JumpForce = 400f;
     const float k_GroundedRadius = .05f;
@@ -22,6 +23,7 @@ public class CharController : MonoBehaviour
     private Vector3 m_Velocity = Vector3.zero;
     private Rigidbody2D m_Rigidbody2D;
     private float m_MovementSmooth = .05f;
+    public float waitTime;
 
     bool jump = false;
     bool crouch;
@@ -49,6 +51,7 @@ public class CharController : MonoBehaviour
     void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+        effector = GetComponent<PlatformEffector2D>();
 
         if (OnLandEvent == null)
         {
@@ -60,6 +63,13 @@ public class CharController : MonoBehaviour
             OnCrouchEvent = new BoolEvent();
         }
     }
+
+
+    /*void Start()
+    {
+        effector = GetComponent<PlatformEffector2D>();
+    }*/
+
 
     public void Move(float move, bool crouch, bool jump)
     {
@@ -167,6 +177,20 @@ public class CharController : MonoBehaviour
         {
             crouch = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.S) && Input.GetKeyDown(KeyCode.Space))
+        {
+            if (waitTime <=0)
+            {
+                effector.rotationalOffset = 180f;
+                waitTime = 1f;
+            }
+            else
+            {
+                effector.rotationalOffset = 0f;
+            }
+        }
+
     }
 
     public void OnLanding ()

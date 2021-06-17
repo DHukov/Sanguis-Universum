@@ -15,12 +15,11 @@ public static class SaveSystem
 
         formatter.Serialize(stream, data);
         stream.Close();
-        Debug.Log("Saves was done" + path);
+        Debug.Log("Saves was done " + path);
     }
 
     public static PlayerData LoadPlayer()
     {
-        Debug.Log("Load was done");
         string path = Application.persistentDataPath + "/player.txt";
         if (File.Exists(path))
         {
@@ -28,6 +27,7 @@ public static class SaveSystem
             FileStream stream = new FileStream(path, FileMode.Open);
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
+            Debug.Log("Load was done " + path);
             return data;
         }
         else

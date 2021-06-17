@@ -525,6 +525,7 @@ MonoBehaviour:
   Stamina: 8
   key1: 0
   key1Used: 0
+  SceneIndex: 0
 --- !u!1 &8701499647108792158
 GameObject:
   m_ObjectHideFlags: 0

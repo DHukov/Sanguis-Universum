@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using UnityEngine;
 
 
@@ -20,10 +21,17 @@ public class SwitcherOfScenes : MonoBehaviour
     public Animator anim;
     public bool isOpened;
 
+    public UnityEvent SaveUnit;
+    public UnityEvent LoadUnit;
+
+
     void Start()
     {
         anim = GetComponent<Animator>();
+            LoadUnit.Invoke();
+
     }
+
 
     public void IsOpened(GameObject obj)
     {
@@ -46,7 +54,10 @@ public class SwitcherOfScenes : MonoBehaviour
     {
         if (isOpened)
         {
+            SaveUnit.Invoke();
+            
             StartCoroutine(LoadScene());
+            //Invoke("LoadUnit", 2);
         }
     }
 
@@ -86,13 +97,15 @@ public class SwitcherOfScenes : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
+
         //PlayerStorage.initialValue = position;
+
 
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(m_SceneName);
         anim.SetTrigger("FadeOut");
         while (!AsyncLoad.isDone)
         {
-
+        
             yield return null;
         }
     }
