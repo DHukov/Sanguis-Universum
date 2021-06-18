@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstOne_Scene/FirstOne_Scene.unity
     guid: 8b1504e45d43d5645b17ce243e3ad5bc
   - enabled: 0
-    path: Assets/Scenes/DH_Scene.unity
+    path: 
     guid: 041166a8573d4674ea1655c5c6cce78d
+  - enabled: 1
+    path: Assets/Scenes/Bib_Level.unity
+    guid: 5ce39fb550b06e84a99d3d7cfd5e1057
   m_configObjects: {}

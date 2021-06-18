@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void Update()
     {
-        HealAndDamage(); // simple function for test of mechanic
+        //HealAndDamage(); // simple function for test of mechanic
         if (Input.GetKeyDown(KeyCode.L))
         {
             LoadScene();
@@ -94,6 +94,7 @@ public class PlayerStats : MonoBehaviour
         if (Health >= MaxHealth)
             Health = MaxHealth;
     }
+    /*
     public void HealAndDamage()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -101,6 +102,7 @@ public class PlayerStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
             Heal(10);
     }
+    */
     public void SavePlayer()
     {
         SaveSystem.SavePlayer(this);

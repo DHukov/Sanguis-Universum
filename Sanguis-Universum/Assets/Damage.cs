@@ -7,7 +7,11 @@ public class Damage : MonoBehaviour
     public UnityEvent damage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.LogError("you are in area ");
+        if (collision.CompareTag("Enemy"))
+        {
+            //HasPlayer = true;
         damage.Invoke();
+        }
+        //Debug.LogError("you are in area ");
     }
 }

@@ -6,7 +6,7 @@ public class MenuController : MonoBehaviour
     public GameObject settings;
     public void StartGame()
     {
-      Application.LoadLevel(1);
+      Application.LoadLevel(3);
     }
 
     public void LoadGame()
