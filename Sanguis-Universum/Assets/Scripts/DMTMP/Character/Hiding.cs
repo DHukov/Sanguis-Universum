@@ -27,7 +27,7 @@ public class Hiding : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = false;
 
             enemy.GetComponent<EnemyAI>().followEnabled = false;
-            enemy.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //enemy.GetComponent<Rigidbody2D>().gravityScale = 0;
         }
         else
         {
@@ -41,7 +41,7 @@ public class Hiding : MonoBehaviour
             player.GetComponent<SpriteRenderer>().enabled = true;
 
             enemy.GetComponent<EnemyAI>().followEnabled = true;
-            enemy.GetComponent<Rigidbody2D>().gravityScale = 2;
+            //enemy.GetComponent<Rigidbody2D>().gravityScale = 2;
         }
     }
 }

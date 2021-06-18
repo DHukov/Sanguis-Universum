@@ -11,7 +11,7 @@ public class EnemyAI : MonoBehaviour
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
-    public float calmSpeed = 10f;
+    public float calmSpeed = 45f;
     public Transform groundDetection;
     public float distance = 5f;
     private float tmp = 10f;
@@ -48,28 +48,26 @@ public class EnemyAI : MonoBehaviour
             RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
             if (groundInfo == false)
             {
-                transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, 0.12022f);
+                transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, 0.5f);
                 calmSpeed = calmSpeed * -1;
                 if(rb.velocity.x > 0)
                 {
-                    tmp = -10f;
-                    //calmSpeed = 3f;
+                    tmp = -45f;
                 }else
                 {
-                    tmp = 10f;
-                    //calmSpeed = -3f;
+                    tmp = 45f;
                 }
                 rb.AddForce(new Vector2 (tmp,0), ForceMode2D.Impulse);
             }
             if (rb.velocity.x > 0)
             {
-                transform.localScale = new Vector3(0.12022f, 0.12022f);
-                calmSpeed = 3;
+                transform.localScale = new Vector3(0.5f, 0.5f);
+                calmSpeed = 45f;
             }
             else 
             {
-                transform.localScale = new Vector3(-0.12022f, 0.12022f);
-                calmSpeed = -3;
+                transform.localScale = new Vector3(-0.5f, 0.5f);
+                calmSpeed = -45f;
             }
             Vector2 force = new Vector2(calmSpeed, 0);
             rb.AddForce(force);
