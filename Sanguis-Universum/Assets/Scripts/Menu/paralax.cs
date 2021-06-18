@@ -7,7 +7,7 @@ public class paralax : MonoBehaviour
     
     void Start()
     {
-        transform.position = new Vector3(3.8f, 4.09f, -13);
+        transform.position = new Vector3(5, -3.53f, -4.58f);
     }
 
     // Update is called once per frame

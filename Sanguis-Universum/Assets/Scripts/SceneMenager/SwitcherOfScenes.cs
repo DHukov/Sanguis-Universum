@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class SwitcherOfScenes : MonoBehaviour
 {
+    public GameObject Message;
     public VectorValue PlayerStorage;
     public Vector3 position;
     [SerializeField] string m_SceneName;
@@ -47,7 +48,12 @@ public class SwitcherOfScenes : MonoBehaviour
             else
             {
                 Debug.Log("Nie otwarte");
+            Message.SetActive(true);
             }
+        }
+        else
+        {
+            Message.SetActive(false);
         }
     }
     public void Teleport()
