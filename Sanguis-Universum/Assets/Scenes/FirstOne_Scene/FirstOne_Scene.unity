@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -804,58 +804,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1126346730456331374, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_Size.x
-      value: 22.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126346730456331374, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_Size.y
-      value: 21.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126346730456331374, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SortingOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1126346730456331374, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1774887580777920624, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
       propertyPath: m_VolumeTrigger
       value: 
       objectReference: {fileID: 1072840644}
-    - target: {fileID: 5166998672439402838, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 22.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 21.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 22.26
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 21.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6593754064725111767, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6851513470590335508, guid: ee7d0e07c7818c3478045ecf90e4af96, type: 3}
       propertyPath: m_RootOrder
       value: 6

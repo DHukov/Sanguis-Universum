@@ -97,15 +97,10 @@ public class SwitcherOfScenes : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
-
-        //PlayerStorage.initialValue = position;
-
-
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(m_SceneName);
         anim.SetTrigger("FadeOut");
         while (!AsyncLoad.isDone)
         {
-        
             yield return null;
         }
     }
