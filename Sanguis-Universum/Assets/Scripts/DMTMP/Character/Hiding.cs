@@ -35,7 +35,7 @@ public class Hiding : MonoBehaviour
             player.GetComponent<CharController>().runSpeed = speedTmp;
             player.GetComponent<CharController>().m_JumpForce = jumpTmp;
 
-            player.GetComponent<Rigidbody2D>().gravityScale = 1;
+            player.GetComponent<Rigidbody2D>().gravityScale = 2;
             player.GetComponent<BoxCollider2D>().isTrigger = false;
             player.GetComponent<CapsuleCollider2D>().isTrigger = false;
             player.GetComponent<SpriteRenderer>().enabled = true;

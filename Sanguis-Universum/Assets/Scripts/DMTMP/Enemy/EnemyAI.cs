@@ -7,11 +7,11 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Pathfinding")]
     public Transform target;
-    public float activateDistance = 50f;
+    public float activateDistance = 150f;
     public float pathUpdateSeconds = 0.5f;
 
     [Header("Physics")]
-    public float calmSpeed = 45f;
+    public float calmSpeed = 65f;
     public Transform groundDetection;
     public float distance = 5f;
     private float tmp = 10f;
@@ -52,22 +52,22 @@ public class EnemyAI : MonoBehaviour
                 calmSpeed = calmSpeed * -1;
                 if(rb.velocity.x > 0)
                 {
-                    tmp = -45f;
+                    tmp = -65f;
                 }else
                 {
-                    tmp = 45f;
+                    tmp = 65f;
                 }
                 rb.AddForce(new Vector2 (tmp,0), ForceMode2D.Impulse);
             }
             if (rb.velocity.x > 0)
             {
                 transform.localScale = new Vector3(0.5f, 0.5f);
-                calmSpeed = 45f;
+                calmSpeed = 65f;
             }
             else 
             {
                 transform.localScale = new Vector3(-0.5f, 0.5f);
-                calmSpeed = -45f;
+                calmSpeed = -65f;
             }
             Vector2 force = new Vector2(calmSpeed, 0);
             rb.AddForce(force);

@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
             SavePlayer();
             //Debug.Log("K");
         }
-        if (dead && Input.GetKeyDown(KeyCode.Space))
+        if (dead && Input.GetKeyDown(KeyCode.R))
         {
             LoadLastSave();
         }
