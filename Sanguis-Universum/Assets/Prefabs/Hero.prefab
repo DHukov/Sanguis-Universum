@@ -587,9 +587,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f00ff0be5d39494bab763016a97a4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeadScreen: {fileID: 0}
   Health: 50
   Stamina: 8
   MaxHealth: 100
+  dead: 0
   key1: 0
   key1Used: 0
   SceneIndex: 0
