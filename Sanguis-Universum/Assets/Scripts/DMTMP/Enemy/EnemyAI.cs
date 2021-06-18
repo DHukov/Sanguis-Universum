@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public float calmSpeed = 10f;
     public Transform groundDetection;
     public float distance = 5f;
+    private float tmp = 10f;
 
     public float speed = 200f;
     public float nextWayPointDistance = 3f;
@@ -49,33 +50,30 @@ public class EnemyAI : MonoBehaviour
             {
                 transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, 0.12022f);
                 calmSpeed = calmSpeed * -1;
+                if(rb.velocity.x > 0)
+                {
+                    tmp = -10f;
+                    //calmSpeed = 3f;
+                }else
+                {
+                    tmp = 10f;
+                    //calmSpeed = -3f;
+                }
+                rb.AddForce(new Vector2 (tmp,0), ForceMode2D.Impulse);
+            }
+            if (rb.velocity.x > 0)
+            {
+                transform.localScale = new Vector3(0.12022f, 0.12022f);
+                calmSpeed = 3;
+            }
+            else 
+            {
+                transform.localScale = new Vector3(-0.12022f, 0.12022f);
+                calmSpeed = -3;
             }
             Vector2 force = new Vector2(calmSpeed, 0);
             rb.AddForce(force);
         }
-        /*
-        if(followEnabled == false)
-        {
-            rb.velocity = new Vector2(0, 0);
-
-            transform.Translate(Vector2.right * calmSpeed * Time.deltaTime);
-            RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance);
-
-            if (groundInfo == false)
-            {
-                if (movingRight == true)
-                {
-                    transform.eulerAngles = new Vector3(0, -180, 0);
-                    movingRight = false;
-                }
-                else
-                {
-                    transform.eulerAngles = new Vector3(0, -0, 0);
-                    movingRight = true;
-                }
-            }
-        }
-        */
     }
 
     private void FixedUpdate()

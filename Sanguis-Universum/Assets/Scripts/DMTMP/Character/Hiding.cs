@@ -5,7 +5,6 @@ using UnityEngine;
 public class Hiding : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] GameObject sprite;
     [SerializeField] GameObject enemy;
 
     bool hiding;
@@ -25,7 +24,7 @@ public class Hiding : MonoBehaviour
             player.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.GetComponent<BoxCollider2D>().isTrigger = true;
             player.GetComponent<CapsuleCollider2D>().isTrigger = true;
-            sprite.GetComponent<SpriteRenderer>().enabled = false;
+            player.GetComponent<SpriteRenderer>().enabled = false;
 
             enemy.GetComponent<EnemyAI>().followEnabled = false;
             enemy.GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -39,7 +38,7 @@ public class Hiding : MonoBehaviour
             player.GetComponent<Rigidbody2D>().gravityScale = 1;
             player.GetComponent<BoxCollider2D>().isTrigger = false;
             player.GetComponent<CapsuleCollider2D>().isTrigger = false;
-            sprite.GetComponent<SpriteRenderer>().enabled = true;
+            player.GetComponent<SpriteRenderer>().enabled = true;
 
             enemy.GetComponent<EnemyAI>().followEnabled = true;
             enemy.GetComponent<Rigidbody2D>().gravityScale = 2;
