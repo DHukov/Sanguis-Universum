@@ -6,9 +6,13 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int Health = 4;
+    [SerializeField] GameObject DeadScreen;
+
+    public int Health = 50;
     public int Stamina = 8;
     public int MaxHealth = 100;
+    public bool dead;
+
 
     public bool key1;
     public bool key1Used;
@@ -33,6 +37,34 @@ public class PlayerStats : MonoBehaviour
             SavePlayer();
             //Debug.Log("K");
         }
+        if (dead && Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadLastSave();
+        }
+    }
+    public void Damage(int DamageAmount) // Player take damage and cannot have HP belove 0
+    {
+        Health -= DamageAmount;
+        if (Health <= 0)
+        {
+            dead = true;
+            Health = 0;
+            if (dead)
+            {
+                DeadScreen.SetActive(dead);
+                Time.timeScale = 0f;
+                Debug.LogError(dead);
+            }
+        }
+
+    }
+    public void LoadLastSave()
+    {
+        LoadScene();
+        LoadPlayerStats();
+        DeadScreen.SetActive(false);
+        Time.timeScale = 1f;
+        Debug.LogError("Button");
     }
     public PlayerStats(int MaxHealth)
     {
@@ -55,12 +87,7 @@ public class PlayerStats : MonoBehaviour
 
     }
     */
-    public void Damage(int DamageAmount) // Player take damage and cannot have HP belove 0
-    {
-        Health -= DamageAmount;
-        if (Health <= 0)
-            Health = 0;
-    }
+    
     public  void Heal(int HealAmount) // Player take heal and cannot have HP more than 100
     {
         Health += HealAmount;
