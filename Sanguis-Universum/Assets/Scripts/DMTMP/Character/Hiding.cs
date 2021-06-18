@@ -6,6 +6,8 @@ public class Hiding : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject enemy;
+   // [SerializeField] GameObject collider;
+
 
     bool hiding;
     float speedTmp;
@@ -28,6 +30,8 @@ public class Hiding : MonoBehaviour
 
             enemy.GetComponent<EnemyAI>().followEnabled = false;
             //enemy.GetComponent<Rigidbody2D>().gravityScale = 0;
+            //collider.GetComponent<BoxCollider2D>().enabled = false;
+
         }
         else
         {
