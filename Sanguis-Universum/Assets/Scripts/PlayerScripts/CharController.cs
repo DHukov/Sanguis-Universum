@@ -29,7 +29,7 @@ public class CharController : MonoBehaviour
     bool crouch;
     float h_Move = 0f;
     public float runSpeed = 40f;
-    public float crouchSpeed = 20f;
+    public float crouchSpeed = 5f;
 
     public UnityEvent OnLandEvent;
     public VectorValue PlayerPosition;
@@ -94,7 +94,7 @@ public class CharController : MonoBehaviour
                 }
 
                 
-                move *= crouchSpeed;
+                move *= crouchSpeed * 0.1f;
 
                 
                 if (CrouchDisableCollider != null)
